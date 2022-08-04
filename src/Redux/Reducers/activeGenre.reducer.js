@@ -1,18 +1,18 @@
 import { ACTIVE_GENRE } from "../ActionType";
 
-export const activeGenreReducer = (state={
+export const activeGenreReducer = (state = {
     activeGenre: []
 }, action) => {
     const { type, payload } = action;
-    if(type === ACTIVE_GENRE){
-        return {
-            ...state,
-            activeGenre: payload.genre
-        }
-    }
-    else{
-        return {
-            ...state
-        }
+    switch (type) {
+        case ACTIVE_GENRE:
+            return {
+                ...state,
+                activeGenre: payload.genre
+            }
+        default:
+            return {
+                ...state
+            }
     }
 }

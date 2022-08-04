@@ -1,7 +1,7 @@
 import { HOME_VIDEOS_FAIL, HOME_VIDEOS_REQUEST, HOME_VIDEOS_SUCCESS } from "../ActionType"
 import request from "../../lib/api"
 
-export const getVideosList = (category, page, isFirst) => async (dispatch, getState) => {
+export const videosAction = (category, page, active_genre) => async (dispatch, getState) => {
     try {
         const fetchByCategory = {
             trending: '/trending/movie/week',
@@ -13,20 +13,22 @@ export const getVideosList = (category, page, isFirst) => async (dispatch, getSt
         dispatch({
             type: HOME_VIDEOS_REQUEST
         });
-        const res = await request(fetchByCategory.category, {
+        const res = await request(fetchByCategory[category], {
             params: {
                 page: page
             }
         });
 
+        console.log(active_genre)
+
         dispatch({
             type: HOME_VIDEOS_SUCCESS,
             payload: {
-                videos: res.data.items,
+                videos: res.data.results,
+                page: res.data.page,
                 total_pages: res.data.total_pages,
                 total_results: res.data.total_results,
                 category: category,
-                isFirst: isFirst
             }
         })
 

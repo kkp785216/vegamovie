@@ -22,7 +22,7 @@ const Header = () => {
   const { genre } = useSelector(state => state.genre)
   useEffect(() => {
     genre?.length <= 0 && dispatch(genreAction());
-  }, [dispatch, genre]);
+  }, [dispatch]);
 
   return (
     <header className='header'>

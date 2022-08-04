@@ -3,64 +3,76 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         grid-gap: 33px;
+        padding: 0 21px;
 
-        .movie__card {
-            .movie__card__image {
+        .media {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            padding: 5px;
+            margin: 5px 0;
+            background-color: #282c34;
+            border-radius: 10px;
+            position: relative;
+            font-family: "Montserrat",sans-serif;
+        
+            .MuiBadge-root {
+                display: inline-flex;
                 position: relative;
-                display: block;
-                border-radius: 13px;
-                overflow: hidden;
-
-                &:after {
-                    content: "";
-                    background-color: transparent;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    transition: ease .3s;
-                }
-
-                &:hover::after {
-                    background-color: rgba(17, 17, 17, 0.192);
-                }
-
-                img {
-                    position: relative;
-                    width: 100%;
-                }
+                flex-shrink: 0;
+                vertical-align: middle;
             }
-
-            .movie__card__title {
-                font-size: 16px;
-                margin: 8px 0;
-                padding: 0 11px;
-
-                a {
-                    display: -webkit-box;
-                    overflow: hidden;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 2;
-                }
+        
+            .title {
+                width: 100%;
+                text-align: center;
+                font-size: 17px;
+                padding: 8px 0;
             }
-
-            .movie__card__extra{
+            .subTitle {
                 display: flex;
                 justify-content: space-between;
-                font-size: 12.5px;
-                padding: 0 11px;
-                .movie__card__date{
-                    display: flex;
-                    align-items: center;
-                    color: #b9b9b9;
-
-                    svg{
-                        font-size: 15px;
-                        margin-right: 4px;
-                    }
-                }
+                padding: 0 2px 3px;
             }
+        
+            .MuiBadge-anchorOriginTopRightRectangle {
+                top: 0;
+                right: 0;
+                transform: scale(1) translate(50%, -50%);
+                transform-origin: 100% 0%;
+            }
+        
+            .MuiBadge-colorPrimary {
+                color: #fff;
+                background-color: #3f51b5;
+            }
+            .MuiBadge-badge {
+                height: 20px;
+                display: flex;
+                padding: 0 6px;
+                z-index: 1;
+                position: absolute;
+                flex-wrap: wrap;
+                font-size: 0.75rem;
+                min-width: 20px;
+                box-sizing: border-box;
+                transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+                align-items: center;
+                font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+                font-weight: 500;
+                line-height: 1;
+                align-content: center;
+                border-radius: 10px;
+                flex-direction: row;
+                justify-content: center;
+            }
+            .poster {
+                border-radius: 10px;
+            }
+        }
+        .media:hover {
+            background-color: #fff;
+            color: #000;
         }
     }
 }
