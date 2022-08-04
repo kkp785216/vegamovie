@@ -14,7 +14,7 @@ const Layout = ({children}) => {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/vegamovie'>
       <div className="App">
         <Routes>
           <Route exact path='/' element={

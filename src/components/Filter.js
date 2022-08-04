@@ -29,6 +29,17 @@ const Filter = () => {
                     </li>
                 ))}
             </ul>
+            <div className="social">
+                <div className='social__buttons'>
+                    <a href="https://github.com/kkp785216/vegamovie"  target='_block'>Github Repo</a>
+                </div>
+                <div className='social__buttons'>
+                    <a href="https://github.com/kkp785216" target='_block'>Github Profile</a>
+                </div>
+                <div className='social__buttons'>
+                    <a href="mailto://kkp785216@gmail.com">Contact Me</a>
+                </div>
+            </div>
         </div>
     )
 }
