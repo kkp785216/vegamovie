@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import DateRangeIcon from '@mui/icons-material/DateRange';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 const MovieCard = ({ video }) => {
 
@@ -11,14 +9,14 @@ const MovieCard = ({ video }) => {
     }
 
     return (
-        <div class="media" color="inherit">
-            <span class="MuiBadge-root">
-                <span class="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary">8.3</span>
+        <Link to='/' title={video.title} className="media" color="inherit">
+            <span className="MuiBadge-root">
+                <span className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary">{video.vote_average}</span>
             </span>
-            <img class="poster" src="https://image.tmdb.org/t/p/w300/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg" alt="Top Gun: Maverick" />
-            <b class="title">Top Gun: Maverick</b>
-            <span class="subTitle">Movie<span class="subTitle">2022-05-24</span></span>
-        </div>
+            <img className="media__poster" src={`https://image.tmdb.org/t/p/w300${video.poster_path}`} alt={video.title} />
+            <strong className="media__title">{video.title}</strong>
+            <span className="media__subTitle">Movie<span className="media__subTitle">{formatDate(video.release_date)}</span></span>
+        </Link>
     )
 }
 

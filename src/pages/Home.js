@@ -9,19 +9,18 @@ const Home = ({category}) => {
   const dispatch = useDispatch();
   const videos = useSelector(state=>state.videos)
   const [page, setPage] = useState(1);
-  const active_genre = useSelector(state=>state.active_genre)
+  const {activeGenre} = useSelector(state=>state.active_genre)
 
   useEffect(()=>{
-      // dispatch(videosAction(category, page, active_genre));
+      dispatch(videosAction(category, page, activeGenre));
       console.log('hii')
-  }, [page, active_genre.activeGenre]);
+  }, [page, activeGenre]);
 
   return (
     <main className="main">
       <div className="movie">
         <div className="movie__wrapper">
-          {/* {videos.videos?.map((e, i) => <MovieCard video={e} key={i} />)} */}
-          {[...new Array(20)].map((e, i) => <MovieCard video={e} key={i} />)}
+          {videos.videos?.map((e, i) => <MovieCard video={e} key={i} />)}
         </div>
       </div>
     </main>

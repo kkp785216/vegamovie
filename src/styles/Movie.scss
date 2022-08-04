@@ -1,51 +1,71 @@
 .movie {
     .movie__wrapper {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        grid-gap: 33px;
+        display: flex;
+        flex-wrap: wrap;
         padding: 0 21px;
+        justify-content: space-between;
+        
+        @media(max-width: 918px){
+            justify-content: space-evenly;
+        }
 
         .media {
             display: flex;
-            flex-direction: column;
             width: 200px;
+            flex-direction: column;
             padding: 5px;
-            margin: 5px 0;
+            margin: 15px 5px;
             background-color: #282c34;
             border-radius: 10px;
             position: relative;
-            font-family: "Montserrat",sans-serif;
-        
+            font-family: "Montserrat", sans-serif;
+
+            &:hover {
+                background-color: #fff;
+                color: #000;
+            }
+
+
+            .media__title {
+                width: 100%;
+                text-align: center;
+                font-size: 17px;
+                padding: 8px 0;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+            }
+
+            .media__subTitle {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 2px 3px;
+            }
+
             .MuiBadge-root {
                 display: inline-flex;
                 position: relative;
                 flex-shrink: 0;
                 vertical-align: middle;
             }
-        
-            .title {
-                width: 100%;
-                text-align: center;
-                font-size: 17px;
-                padding: 8px 0;
+
+            .media__poster {
+                border-radius: 10px;
             }
-            .subTitle {
-                display: flex;
-                justify-content: space-between;
-                padding: 0 2px 3px;
-            }
-        
+
             .MuiBadge-anchorOriginTopRightRectangle {
                 top: 0;
                 right: 0;
                 transform: scale(1) translate(50%, -50%);
                 transform-origin: 100% 0%;
             }
-        
+
             .MuiBadge-colorPrimary {
                 color: #fff;
                 background-color: #3f51b5;
             }
+
             .MuiBadge-badge {
                 height: 20px;
                 display: flex;
@@ -66,13 +86,6 @@
                 flex-direction: row;
                 justify-content: center;
             }
-            .poster {
-                border-radius: 10px;
-            }
-        }
-        .media:hover {
-            background-color: #fff;
-            color: #000;
         }
     }
 }
