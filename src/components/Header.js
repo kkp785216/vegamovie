@@ -5,6 +5,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { genreAction } from '../Redux/Actions/genre.action'
 import SearchIcon from '@mui/icons-material/Search';
 import Filter from './Filter'
+import logo from '../assets/img/logo.png'
+import Netflix from '../assets/img/platforms/Netflix.png'
+import Prime_Video from '../assets/img/platforms/Prime_Video.jpg'
+import DSNP_Hotstar from '../assets/img/platforms/DSNP_Hotstar.png'
+import Apple from '../assets/img/platforms/Apple-TV-Logo.png'
+import Zee5 from '../assets/img/platforms/Zee5.jpg'
+import Sonyliv from '../assets/img/platforms/Sonyliv.png'
+import ullu from '../assets/img/platforms/ullu.jpg'
+import Altbalaji from '../assets/img/platforms/Altbalaji.jpg'
+import Voot from '../assets/img/platforms/Voot.jpg'
 
 const Header = () => {
 
@@ -16,7 +26,7 @@ const Header = () => {
 
   return (
     <header className='header'>
-      <Link to='/'><img src="logo.png" alt="Logo" className="d-block header__logo" /></Link>
+      <Link to='/'><img src={logo} alt="Logo" className="d-block header__logo" /></Link>
       <nav className='nav'>
         <ul>
           <li className='active'><Link to='/'>Home</Link></li>
@@ -39,15 +49,15 @@ const Header = () => {
         </form>
       </nav>
       <div className="platforms">
-        <img src="assets\img\platforms\Netflix.png" alt="Netflix" />
-        <img src="assets\img\platforms\Prime_Video.jpg" alt="Prime Video" />
-        <img src="assets\img\platforms\DSNP_Hotstar.png" alt="Hotsar" />
-        <img src="assets\img\platforms\Apple-TV-Logo.png" alt="Apple TV" />
-        <img src="assets\img\platforms\Zee5.jpg" alt="Zee5" />
-        <img src="assets\img\platforms\Sonyliv.png" alt="Sony Liv" />
-        <img src="assets\img\platforms\ullu.jpg" alt="Ullu" />
-        <img src="assets\img\platforms\Altbalaji.jpg" alt="Alt Balaji" />
-        <img src="assets\img\platforms\Voot.jpg" alt="Voot" />
+        <img src={Netflix} alt="Netflix" />
+        <img src={Prime_Video} alt="Prime Video" />
+        <img src={DSNP_Hotstar} alt="Hotsar" />
+        <img src={Apple} alt="Apple TV" />
+        <img src={Zee5} alt="Zee5" />
+        <img src={Sonyliv} alt="Sony Liv" />
+        <img src={ullu} alt="Ullu" />
+        <img src={Altbalaji} alt="Alt Balaji" />
+        <img src={Voot} alt="Voot" />
       </div>
       <Filter />
     </header>
