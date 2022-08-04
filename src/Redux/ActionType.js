@@ -1,3 +1,5 @@
 export const ALL_GENRE_SUCCESS = "ALL_GENRE_SUCCESS";
 export const ALL_GENRE_FAIL = "ALL_GENRE_FAIL";
 export const ALL_GENRE_REQUEST = "ALL_GENRE_REQUEST";
+
+export const ACTIVE_GENRE = "ACTIVE_GENRE"

@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const api = [
     {
         apiKey: '089ff97e142c4b012df105099009a50b',
@@ -7,3 +9,13 @@ const api = [
         password: 'wogop48437@gmail.com'
     }
 ]
+
+const request = axios.create({
+    baseURL: "https://api.themoviedb.org/3",
+    headers: {},
+    params: {
+        api_key: api[0].apiKey
+    }
+});
+
+export default request;
