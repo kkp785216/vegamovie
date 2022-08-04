@@ -30,18 +30,10 @@ const Header = () => {
       <nav className='nav'>
         <ul>
           <li className='active'><Link to='/'>Home</Link></li>
-          <li><Link to='/'>Latest</Link></li>
-          <li><Link to='/'>Popular</Link></li>
-          <li><Link to='/'>Top Rated</Link></li>
-          <li><Link to='/'>Upcomming</Link></li>
-          {/* <li>
-            <Link to='/'>Genre</Link>
-            <ul>
-              {genre?.map((element) => (
-                <li key={element.id}><Link to='/'>{element.name}</Link></li>
-              ))}
-            </ul>
-          </li> */}
+          <li><Link to='/latest'>Latest</Link></li>
+          <li><Link to='/popular'>Popular</Link></li>
+          <li><Link to='/top-rated'>Top Rated</Link></li>
+          <li><Link to='/upcomming'>Upcomming</Link></li>
         </ul>
         <form className='search__form'>
           <input type="text" className="nav__search" placeholder='Search...' />

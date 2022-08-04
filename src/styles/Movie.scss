@@ -1,0 +1,66 @@
+.movie {
+    .movie__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 33px;
+
+        .movie__card {
+            .movie__card__image {
+                position: relative;
+                display: block;
+                border-radius: 13px;
+                overflow: hidden;
+
+                &:after {
+                    content: "";
+                    background-color: transparent;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    transition: ease .3s;
+                }
+
+                &:hover::after {
+                    background-color: rgba(17, 17, 17, 0.192);
+                }
+
+                img {
+                    position: relative;
+                    width: 100%;
+                }
+            }
+
+            .movie__card__title {
+                font-size: 16px;
+                margin: 8px 0;
+                padding: 0 11px;
+
+                a {
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                }
+            }
+
+            .movie__card__extra{
+                display: flex;
+                justify-content: space-between;
+                font-size: 12.5px;
+                padding: 0 11px;
+                .movie__card__date{
+                    display: flex;
+                    align-items: center;
+                    color: #b9b9b9;
+
+                    svg{
+                        font-size: 15px;
+                        margin-right: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
