@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/vegamovie/static/css/main.040b9874.css",
-    "main.js": "/vegamovie/static/js/main.4138b9d8.js",
+    "main.js": "/vegamovie/static/js/main.5a4ceeb9.js",
     "static/js/787.89e33eae.chunk.js": "/vegamovie/static/js/787.89e33eae.chunk.js",
     "index.html": "/vegamovie/index.html",
     "main.040b9874.css.map": "/vegamovie/static/css/main.040b9874.css.map",
-    "main.4138b9d8.js.map": "/vegamovie/static/js/main.4138b9d8.js.map",
+    "main.5a4ceeb9.js.map": "/vegamovie/static/js/main.5a4ceeb9.js.map",
     "787.89e33eae.chunk.js.map": "/vegamovie/static/js/787.89e33eae.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.040b9874.css",
-    "static/js/main.4138b9d8.js"
+    "static/js/main.5a4ceeb9.js"
   ]
 }
