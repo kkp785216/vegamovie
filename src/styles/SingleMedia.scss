@@ -3,9 +3,66 @@
     .sinigleMedia__main{
         width: 70%;
         flex: 0 0 auto;
+        padding: 40px 20px;
+        background-color: #191919;
+        color: #c4c4c4;
 
         .sinigleMedia__main__heading{
             font-size: 30px;
+            color: #fff;
+            text-transform: capitalize;
+        }
+        .sinigleMedia__date{
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #aeaeae;
+            padding-top: 7px;
+
+            .sinigleMedia__date__icon{
+                font-size: 14px;
+                margin-right: 5px;
+            }
+        }
+        .sinigleMedia__genre__list{
+            margin: -4px;
+            padding: 21px 0;
+            &> a{
+                padding: 5px 12px;
+                background-color: #3a3a3a;
+                color: #e1e1e1;
+                margin: 4px;
+                display: inline-block;
+                border-radius: 1000px;
+                font-size: 13px;
+
+                &:hover{
+                    background-color: #323232;
+                }
+            }
+        }
+        .singleMedis__hr{
+            width: 100%;
+            height: 1px;
+            background-color: #ffffff1a;
+            margin: 37px 0;
+        }
+        .sinigleMedia__description{
+            line-height: 27px;
+        }
+        .sinigleMedia__date__highlightTitle{
+            text-align: center;
+            font-weight: 700;
+            font-size: 21px;
+            color: #00ffff;
+            margin: 11px 0;
+            text-transform: capitalize;
+        }
+        .singleMedis__movie__info{
+            &> *{
+                display: block;
+                margin-bottom: 5px;
+            }
         }
     }
     .singleMedia__aside{
