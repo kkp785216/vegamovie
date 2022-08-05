@@ -18,17 +18,21 @@ const Home = ({ category }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    let page = searchParams.get('page') ? parseInt(searchParams.get('page')) : 1
     dispatch(videosAction(category, page, activeGenre, searchParams.get('q')));
+    setPage(searchParams.get('page') ? parseInt(searchParams.get('page')) : 1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, activeGenre, searchParams.get('q')]);
+  }, [activeGenre, searchParams.get('q'), searchParams.get('page')]);
 
   const goToPage = ({ selected }) => {
     if (selected + 1 >= 1 && selected + 1 <= (parseInt(videos.total_pages) >= 500 ? 500 : parseInt(videos.total_pages))) {
       setPage(selected + 1)
-      navigate(`?page=${selected + 1}`);
+      let query = window.location.search.includes('?') ? (window.location.search.includes('page') ? (window.location.search.replace(/page=[0-9]+/, `page=${selected + 1}`)) : (`${window.location.search}&page=${selected + 1}`)) : (`?page=${selected + 1}`)
+      navigate(query);
       document.querySelector('.movie').scrollIntoView();
     }
   }
+
   return (
     <main className="main">
       <div className="movie">

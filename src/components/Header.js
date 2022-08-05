@@ -22,6 +22,7 @@ const Header = () => {
   const { genre } = useSelector(state => state.genre)
   useEffect(() => {
     genre?.length <= 0 && dispatch(genreAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   const [query, setQeury] = useState('');
@@ -44,7 +45,7 @@ const Header = () => {
         </ul>
         <form onSubmit={handleSearch} className='search__form'>
           <input type="text" value={query} onChange={(e)=>{setQeury(e.target.value)}} className="nav__search" id="search" placeholder='Search...' />
-          <button className='nav__searchBtn' type="submit"><SearchIcon /></button>
+          <button className='nav__searchBtn' type="submit" disabled={query.length <= 0}><SearchIcon /></button>
         </form>
       </nav>
       <div className="platforms">
