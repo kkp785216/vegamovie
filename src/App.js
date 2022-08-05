@@ -39,6 +39,12 @@ function App() {
             <Home category='upcomming' key='upcomming'/>
           </Layout>
         } />
+        <Route exact path='/search' element={
+          <Layout>
+            <Header />
+            <Home category='search' key='search'/>
+          </Layout>
+        } />
         <Route exact path='/about' element={
           <Layout>
             <Header />

@@ -1,7 +1,7 @@
 import { HOME_VIDEOS_FAIL, HOME_VIDEOS_REQUEST, HOME_VIDEOS_SUCCESS } from "../ActionType"
 import request from "../../lib/api"
 
-export const videosAction = (category, page, activeGenre) => async (dispatch, getState) => {
+export const videosAction = (category, page, activeGenre, query) => async (dispatch, getState) => {
     try {
         const fetchByCategory = {
             movies: '/discover/movie',
@@ -10,6 +10,7 @@ export const videosAction = (category, page, activeGenre) => async (dispatch, ge
             popular: '/movie/popular',
             top_rated: '/movie/top_rated',
             upcomming: '/movie/upcoming',
+            search: 'search/movie'
         }
         dispatch({
             type: HOME_VIDEOS_REQUEST
@@ -17,7 +18,9 @@ export const videosAction = (category, page, activeGenre) => async (dispatch, ge
         const res = await request(fetchByCategory[category], {
             params: {
                 page: page,
-                with_genres: activeGenre.map(a=>a.id).toString()
+                with_genres: activeGenre.map(a=>a.id).toString(),
+                include_adult: false,
+                query: query ? query : ''
             }
         });
 

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/Header.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { genreAction } from '../Redux/Actions/genre.action'
 import SearchIcon from '@mui/icons-material/Search';
@@ -24,6 +24,14 @@ const Header = () => {
     genre?.length <= 0 && dispatch(genreAction());
   }, [dispatch]);
 
+  const [query, setQeury] = useState('');
+  const navigate = useNavigate();
+  
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/search?q=${query}`);
+  }
+
   return (
     <header className='header'>
       <Link to='/'><img src={logo} alt="Logo" className="d-block header__logo" /></Link>
@@ -34,8 +42,8 @@ const Header = () => {
           <li><Link to='/popular'>Popular</Link></li>
           <li><Link to='/upcomming'>Upcomming</Link></li>
         </ul>
-        <form className='search__form'>
-          <input type="text" className="nav__search" placeholder='Search...' />
+        <form onSubmit={handleSearch} className='search__form'>
+          <input type="text" value={query} onChange={(e)=>{setQeury(e.target.value)}} className="nav__search" id="search" placeholder='Search...' />
           <button className='nav__searchBtn' type="submit"><SearchIcon /></button>
         </form>
       </nav>

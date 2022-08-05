@@ -18,32 +18,31 @@ const Home = ({ category }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(videosAction(category, page, activeGenre));
+    dispatch(videosAction(category, page, activeGenre, searchParams.get('q')));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, activeGenre]);
+  }, [page, activeGenre, searchParams.get('q')]);
 
-  const goToPage = ({selected}) => {
+  const goToPage = ({ selected }) => {
     if (selected + 1 >= 1 && selected + 1 <= (parseInt(videos.total_pages) >= 500 ? 500 : parseInt(videos.total_pages))) {
       setPage(selected + 1)
       navigate(`?page=${selected + 1}`);
       document.querySelector('.movie').scrollIntoView();
     }
   }
-
   return (
     <main className="main">
       <div className="movie">
         <div className="movie__wrapper">
           {videos.videos?.map((e, i) => <MovieCard video={e} key={i} />)}
         </div>
-        {videos.videos.length >= 1 && <div className="pagination">
+        {videos.videos?.length >= 1 && <div className="pagination">
           <ReactPaginate
             breakLabel="..."
-            nextLabel={<ArrowForwardIosIcon className='pagination__icon'/>}
+            nextLabel={<ArrowForwardIosIcon className='pagination__icon' />}
             onPageChange={goToPage}
             pageRangeDisplayed={1}
             pageCount={parseInt(videos.total_pages) >= 500 ? 500 : parseInt(videos.total_pages)}
-            previousLabel={<ArrowBackIosSharpIcon className='pagination__icon'/>}
+            previousLabel={<ArrowBackIosSharpIcon className='pagination__icon' />}
             renderOnZeroPageCount={null}
             marginPagesDisplayed={2}
             forcePage={page - 1}

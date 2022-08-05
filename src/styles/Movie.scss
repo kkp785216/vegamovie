@@ -3,11 +3,7 @@
         display: flex;
         flex-wrap: wrap;
         padding: 0 21px;
-        justify-content: space-between;
-
-        @media(max-width: 918px) {
-            justify-content: space-evenly;
-        }
+        justify-content: space-around;
 
         .media {
             display: flex;
