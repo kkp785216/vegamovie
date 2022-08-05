@@ -30,9 +30,8 @@ const Header = () => {
       <nav className='nav'>
         <ul>
           <li className='active'><Link to='/'>Home</Link></li>
-          <li><Link to='/latest'>Latest</Link></li>
+          <li><Link to='/trending'>Trending</Link></li>
           <li><Link to='/popular'>Popular</Link></li>
-          <li><Link to='/top-rated'>Top Rated</Link></li>
           <li><Link to='/upcomming'>Upcomming</Link></li>
         </ul>
         <form className='search__form'>

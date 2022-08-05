@@ -18,25 +18,19 @@ function App() {
         <Route exact path='/' element={
           <Layout>
             <Header />
-            <Home category='trending'  key='trending'/>
+            <Home category='movies'  key='movies'/>
           </Layout>
         } />
-        <Route exact path='/latest' element={
+        <Route exact path='/trending' element={
           <Layout>
             <Header />
-            <Home category='latest'  key='latest'/>
+            <Home category='trending'  key='trending'/>
           </Layout>
         } />
         <Route exact path='/popular' element={
           <Layout>
             <Header />
             <Home category='popular' key='popular'/>
-          </Layout>
-        } />
-        <Route exact path='/top-rated' element={
-          <Layout>
-            <Header />
-            <Home category='top-rated' key='top-rated'/>
           </Layout>
         } />
         <Route exact path='/upcomming' element={

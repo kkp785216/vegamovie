@@ -13,7 +13,7 @@ const Home = ({category}) => {
 
   useEffect(()=>{
       dispatch(videosAction(category, page, activeGenre));
-      console.log('hii')
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, activeGenre]);
 
   return (
@@ -21,6 +21,10 @@ const Home = ({category}) => {
       <div className="movie">
         <div className="movie__wrapper">
           {videos.videos?.map((e, i) => <MovieCard video={e} key={i} />)}
+        </div>
+        <div className="pagination">
+          <button>Prev</button>
+          <button>Next</button>
         </div>
       </div>
     </main>
