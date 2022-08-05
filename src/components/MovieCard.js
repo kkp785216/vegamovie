@@ -9,7 +9,7 @@ const MovieCard = ({ video }) => {
     }
 
     return (
-        <Link to='/' title={video.title} className="media" color="inherit">
+        <Link to={`/movie?id=${video.id}`} title={video.title} className="media" color="inherit">
             <span className="MuiBadge-root">
                 <span className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary">{video.vote_average}</span>
             </span>

@@ -1,0 +1,15 @@
+.sinigleMedia{
+    display: flex;
+    .sinigleMedia__main{
+        width: 70%;
+        flex: 0 0 auto;
+
+        .sinigleMedia__main__heading{
+            font-size: 30px;
+        }
+    }
+    .singleMedia__aside{
+        width: 30%;
+        flex: 0 0 auto;
+    }
+}

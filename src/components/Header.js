@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/Header.scss'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { genreAction } from '../Redux/Actions/genre.action'
 import SearchIcon from '@mui/icons-material/Search';
-import Filter from './Filter'
 import logo from '../assets/img/logo.png'
 import Netflix from '../assets/img/platforms/Netflix.png'
 import Prime_Video from '../assets/img/platforms/Prime_Video.jpg'
@@ -17,6 +16,8 @@ import Altbalaji from '../assets/img/platforms/Altbalaji.jpg'
 import Voot from '../assets/img/platforms/Voot.jpg'
 
 const Header = () => {
+
+  const {pathname} = useLocation();
 
   const dispatch = useDispatch();
   const { genre } = useSelector(state => state.genre)
@@ -38,10 +39,10 @@ const Header = () => {
       <Link to='/'><img src={logo} alt="Logo" className="d-block header__logo" /></Link>
       <nav className='nav'>
         <ul>
-          <li className='active'><Link to='/'>Home</Link></li>
-          <li><Link to='/trending'>Trending</Link></li>
-          <li><Link to='/popular'>Popular</Link></li>
-          <li><Link to='/upcomming'>Upcomming</Link></li>
+          <li className={pathname === '/'?'active':''}><Link to='/'>Home</Link></li>
+          <li className={pathname === '/trending'?'active':''}><Link to='/trending'>Trending</Link></li>
+          <li className={pathname === '/popular'?'active':''}><Link to='/popular'>Popular</Link></li>
+          <li className={pathname === '/upcomming'?'active':''}><Link to='/upcomming'>Upcomming</Link></li>
         </ul>
         <form onSubmit={handleSearch} className='search__form'>
           <input type="text" value={query} onChange={(e)=>{setQeury(e.target.value)}} className="nav__search" id="search" placeholder='Search...' />
@@ -59,7 +60,7 @@ const Header = () => {
         <img src={Altbalaji} alt="Alt Balaji" />
         <img src={Voot} alt="Voot" />
       </div>
-      <Filter />
+      {/* <Filter /> */}
     </header>
   )
 }
