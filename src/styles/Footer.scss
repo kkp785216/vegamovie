@@ -1,13 +1,6 @@
 .footer{
     background-color: #111111;
-    border-left: 5px solid black;
-    border-right: 5px solid black;
     padding: 13px 21px;
-
-    @media (max-width: 1145px) {
-        border-left: none;
-        border-right: none;
-    }
     .footer__copyright{
         display: block;
         text-align: center;

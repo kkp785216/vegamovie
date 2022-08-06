@@ -60,6 +60,7 @@ function App() {
             <Layout>
               <Header />
               <SingleMedia />
+              <Footer />
             </Layout>
           } />
           <Route exact path='/about' element={
