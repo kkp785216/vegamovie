@@ -181,3 +181,25 @@
         }
     }
 }
+
+@media(max-width: 767px) {
+    .header {
+        .nav {
+            display: none;
+        }
+
+        .platforms {
+            overflow-x: auto;
+            & * {
+                width: 38px;
+            }
+        }
+    }
+}
+@media(max-width: 432px) {
+    .header {
+        .platforms {
+            justify-content: flex-start;
+        }
+    }
+}

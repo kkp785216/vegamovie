@@ -48,7 +48,7 @@ const Home = ({ category }) => {
             pageCount={parseInt(videos.total_pages) >= 500 ? 500 : parseInt(videos.total_pages)}
             previousLabel={<ArrowBackIosSharpIcon className='pagination__icon' />}
             renderOnZeroPageCount={null}
-            marginPagesDisplayed={2}
+            marginPagesDisplayed={3}
             forcePage={page - 1}
           />
         </div>}

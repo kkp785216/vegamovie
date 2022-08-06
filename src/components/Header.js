@@ -49,7 +49,7 @@ const Header = () => {
           <button className='nav__searchBtn' type="submit" disabled={query.length <= 0}><SearchIcon /></button>
         </form>
       </nav>
-      <div className="platforms">
+      <div className="platforms hideScrollBar">
         <img src={Netflix} alt="Netflix" />
         <img src={Prime_Video} alt="Prime Video" />
         <img src={DSNP_Hotstar} alt="Hotsar" />
@@ -60,7 +60,6 @@ const Header = () => {
         <img src={Altbalaji} alt="Alt Balaji" />
         <img src={Voot} alt="Voot" />
       </div>
-      {/* <Filter /> */}
     </header>
   )
 }

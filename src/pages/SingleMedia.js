@@ -65,10 +65,10 @@ const SingleMedia = () => {
                             grabCursor={true}
                             autoplay={{ delay: 1500, disableOnInteraction: false, pauseOnMouseEnter: true }}
                             breakpoints={{
-                                350: {
+                                0: {
                                     slidesPerView: 3
                                 },
-                                450: {
+                                420: {
                                     slidesPerView: 4
                                 },
                                 500: {
@@ -129,7 +129,6 @@ const SingleMedia = () => {
                     }
                 </>}
             </main>
-            {/* <aside className="singleMedia__aside"></aside> */}
         </div>
     )
 }

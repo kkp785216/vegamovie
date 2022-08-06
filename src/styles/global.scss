@@ -1,34 +1,47 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #111;
     color: #fff;
-    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-a{
+a {
     color: inherit;
     text-decoration: none;
 
-    &:hover{
+    &:hover {
         color: inherit;
     }
 }
 
-li{
+li {
     list-style: none;
 }
 
-.App{
+.App {
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.main{
+.main {
     background-color: #191919;
+}
+
+.hideScrollBar {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    & {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
 }

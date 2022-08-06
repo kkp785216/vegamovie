@@ -16,6 +16,17 @@
             position: relative;
             font-family: "Montserrat", sans-serif;
 
+            @media(max-width: 480px) {
+                width: 46%;
+                flex-grow: 1;
+                flex-basis: 46%;
+                max-width: 50%;
+            }
+            @media(max-width: 300px){
+                width: 100%;
+                max-width: 180px;
+            }
+
             &:hover {
                 background-color: #fff;
                 color: #000;
@@ -48,6 +59,7 @@
 
             .media__poster {
                 border-radius: 10px;
+                width: 100%;
             }
 
             .MuiBadge-anchorOriginTopRightRectangle {
@@ -88,18 +100,20 @@
     .pagination {
         padding: 0 21px;
         padding: 43px 0;
+
         &>ul {
             display: flex;
-            color:  #fff;
+            color: #fff;
             justify-content: center;
             flex-wrap: wrap;
 
-            &>li{
+            &>li {
                 width: 41px;
                 height: 41px;
                 position: relative;
                 margin: 4px;
-                &> a{
+
+                &>a {
                     font-size: 15px;
                     font-weight: 600;
                     background-color: transparent;
@@ -117,25 +131,26 @@
                     margin: auto;
                 }
 
-                &> a:hover{
+                &>a:hover {
                     background-color: red;
                     border-color: red;
                 }
-                
-                &.selected> a{
+
+                &.selected>a {
                     background-color: red;
                     border-color: red;
                     cursor: unset;
                 }
-                
-                &.break> a{
+
+                &.break>a {
                     border-color: transparent;
                     background-color: transparent;
                     cursor: unset;
                 }
             }
         }
-        .pagination__icon{
+
+        .pagination__icon {
             font-size: 21px;
             display: block;
         }
