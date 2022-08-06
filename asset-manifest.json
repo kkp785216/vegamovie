@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/vegamovie/static/css/main.4cf6aa19.css",
-    "main.js": "/vegamovie/static/js/main.92cd29be.js",
+    "main.css": "/vegamovie/static/css/main.aca4cf23.css",
+    "main.js": "/vegamovie/static/js/main.942fdc1c.js",
     "static/js/787.89e33eae.chunk.js": "/vegamovie/static/js/787.89e33eae.chunk.js",
     "static/media/logo.png": "/vegamovie/static/media/logo.1dae2c62f05b788d0405.png",
     "static/media/Prime_Video.jpg": "/vegamovie/static/media/Prime_Video.774b061c5cb973380828.jpg",
     "static/media/Sonyliv.png": "/vegamovie/static/media/Sonyliv.e6d2437e998a5c7c5715.png",
     "index.html": "/vegamovie/index.html",
-    "main.4cf6aa19.css.map": "/vegamovie/static/css/main.4cf6aa19.css.map",
-    "main.92cd29be.js.map": "/vegamovie/static/js/main.92cd29be.js.map",
+    "main.aca4cf23.css.map": "/vegamovie/static/css/main.aca4cf23.css.map",
+    "main.942fdc1c.js.map": "/vegamovie/static/js/main.942fdc1c.js.map",
     "787.89e33eae.chunk.js.map": "/vegamovie/static/js/787.89e33eae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4cf6aa19.css",
-    "static/js/main.92cd29be.js"
+    "static/css/main.aca4cf23.css",
+    "static/js/main.942fdc1c.js"
   ]
 }
