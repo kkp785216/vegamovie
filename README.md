@@ -13,17 +13,6 @@
 <p>4). Swiper Js</p>
 <p>5). TMDb Api</p>
 
-### Features of this Project
-<p>1). Multiple Category</p>
-<p>2). Pagination</p>
-<p>3). Movie Rating</p>
-<p>4). Screenshots with see more button</p>
-<p>5). Casts</p>
-<p>6). Search</p>
-<p>7). Reviews</p>
-<p>8). Responsive</p>
-<p>9). Filter of Genre</p>
-
 <p align="left"> 
     <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> 
@@ -35,6 +24,17 @@
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> 
   </a> 
 </p>
+
+### Features of this Project
+<p>1). Multiple Category</p>
+<p>2). Pagination</p>
+<p>3). Movie Rating</p>
+<p>4). Screenshots with see more button</p>
+<p>5). Casts</p>
+<p>6). Search</p>
+<p>7). Reviews</p>
+<p>8). Responsive</p>
+<p>9). Filter of Genre</p>
 
 ### Clone this project
 ```bash
