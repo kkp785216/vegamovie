@@ -11,7 +11,7 @@ const MovieCard = ({ video }) => {
     return (
         <Link to={`/movie?id=${video.id}`} title={video.title} className="media" color="inherit">
             <span className="MuiBadge-root">
-                <span className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary">{video.vote_average}</span>
+                <span className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary">{video.vote_average.toFixed(1)}</span>
             </span>
             <img className="media__poster" src={`https://image.tmdb.org/t/p/w300${video.poster_path}`} alt={video.title} />
             <strong className="media__title">{video.title}</strong>

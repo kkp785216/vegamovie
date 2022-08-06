@@ -4,9 +4,11 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import request from '../lib/api'
 import { useSearchParams, Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay} from 'swiper';
+import { Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const SingleMedia = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -31,6 +33,11 @@ const SingleMedia = () => {
         let date = new Date(input);
         return (date.getDay() <= 9 ? "0" + date.getDay() : date.getDay()) + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][date.getMonth()] + " " + date.getFullYear()
     }
+
+    const formatDuration = (input) => {
+        return input < 60 ? `${input} minute}` : `${Math.ceil(input / 60)} hour ${input % 60} minute`
+    }
+
     return (
         <div className='sinigleMedia'>
             <main className="sinigleMedia__main">
@@ -55,7 +62,8 @@ const SingleMedia = () => {
                             spaceBetween={12}
                             slidesPerView={9}
                             preloadImages={false}
-                            // autoplay={{ delay: 1500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                            grabCursor={true}
+                            autoplay={{ delay: 1500, disableOnInteraction: false, pauseOnMouseEnter: true }}
                             breakpoints={{
                                 350: {
                                     slidesPerView: 3
@@ -90,6 +98,10 @@ const SingleMedia = () => {
                             ))}
                         </Swiper>
                     </div>
+                    <a href={`https://www.imdb.com/title/${details.imdb_id}`} target="_blank" className="sinigleMedia__imdb">
+                        <PlayCircleOutlineIcon />
+                        <span>Watch on IMDB<OpenInNewIcon fontSize='11' /></span>
+                    </a>
                     <div className="singleMedis__hr"></div>
                     <p className="sinigleMedia__description" style={{ marginBottom: '27px' }}>
                         {details.overview}
@@ -103,6 +115,10 @@ const SingleMedia = () => {
                         <span><strong>Movie Name:</strong> {details.title}</span>
                         <span><strong>Language:</strong> {details.spoken_languages.map(e => e.english_name)?.join(', ')}</span>
                         <span><strong>Released Year:</strong> {new Date(details.release_date).getFullYear()}</span>
+                        <span><strong>Duration:</strong> {formatDuration(parseInt(details.runtime))}</span>
+                        <span><strong>Rating:</strong> {details.vote_average.toFixed(1)}</span>
+                        <span><strong>Rates:</strong> {details.vote_count}</span>
+                        <span><strong>Status:</strong> {details.status}</span>
                     </div>
                     <h2 className="sinigleMedia__date__highlightTitle__screenshot">Screenshots:</h2>
                     {images?.backdrops?.concat().splice(0, screenshotsCount).map((e, i) => (

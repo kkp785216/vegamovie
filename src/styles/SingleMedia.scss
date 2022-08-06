@@ -89,6 +89,36 @@
             }
         }
 
+        .sinigleMedia__imdb{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background-color: #f5c518;
+            color: black;
+            cursor: pointer;
+            padding: 5px 12px;
+            border-radius: 5px;
+            margin-top: 23px;
+            
+            &:hover{
+                background-color: #e6b400;
+                span{
+                    text-decoration: underline;
+                }
+            }
+
+            svg{
+                margin: 0 12px;
+            }
+
+            span{
+                margin: auto;
+                display: block;
+                font-size: 15px;
+                font-weight: 600;
+            }
+        }
+
         .singleMedis__hr {
             width: 100%;
             height: 1px;
