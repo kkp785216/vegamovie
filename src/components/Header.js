@@ -34,11 +34,12 @@ const Header = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     navigate(`/search?q=${query}`);
+    document.querySelector('.mob__nav__searchBar').classList.remove('active');
   }
 
   const handleToggleSearch = () => {
     document.querySelector('.mob__nav__searchBar').classList.add('active');
-    document.querySelector('.mob__nav__searchBar').className.includes('active') ? document.querySelector('#mobSearch').focus() : document.querySelector('#mobSearch').blur()
+    document.querySelector('.mob__nav__searchBar').className.includes('active') ? document.querySelector('#mobSearch').focus() : document.querySelector('#mobSearch').blur();
   }
 
   return (
