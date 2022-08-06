@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 const SingleMedia = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -16,6 +17,7 @@ const SingleMedia = () => {
     const [screenshotsCount, setScreenshotsCount] = useState(5);
     const [images, setImages] = useState(null)
     const [credits, setCredits] = useState(null)
+    const [reviews, setReviews] = useState(null)
 
     useEffect(() => {
         request(`/movie/${searchParams.get('id')}`)
@@ -26,8 +28,10 @@ const SingleMedia = () => {
                     .then(data => { setImages(data.data) });
                 request(`movie/${searchParams.get('id')}/credits`)
                     .then(data => { setCredits(data.data) });
+                request(`movie/${searchParams.get('id')}/reviews`)
+                    .then(data => { setReviews(data.data) });
             });
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchParams.get('id')]);
 
     const formatDate = (input) => {
@@ -37,6 +41,11 @@ const SingleMedia = () => {
 
     const formatDuration = (input) => {
         return input < 60 ? `${input} minute}` : `${Math.ceil(input / 60)} hour ${input % 60} minute`
+    }
+
+    const formatReviewsDate = (input) => {
+        let date = new Date(input);
+        return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][date.getMonth()] + " " + (date.getDay() <= 9 ? "0" + date.getDay() : date.getDay()) + " " +  date.getFullYear() + " at " + date.getHours() + ":" + (date.getMinutes() <= 9 ? "0" + date.getMinutes() : date.getMinutes()) + " " + (date.getHours() >=13 ? "pm" : "am")
     }
 
     return (
@@ -128,6 +137,21 @@ const SingleMedia = () => {
                     {images && screenshotsCount < images.backdrops?.length &&
                         <button className="singleMedia__screenshots__seeMoreBtn" onClick={() => { setScreenshotsCount(screenshotsCount + 5) }}>See more</button>
                     }
+                    {reviews && <>
+                        <h2>{reviews.total_results} comments</h2>
+                        <div className="singleMedia__reviews__wrapper">
+                            {reviews.results.map((e, i) => (
+                                <div className='singleMedia__reviews' key={i}>
+                                    <AccountCircleOutlinedIcon className='singleMedia__reviews__userIcon' />
+                                    <div className="singleMedia__reviews__content">
+                                        <span className='singleMedia__reviews__userName'><strong>{e.author_details.name === ""? 'Anonymous':e.author_details.name}</strong></span>
+                                        <span className='singleMedia__reviews__date'>{formatReviewsDate(e.updated_at)}</span>
+                                        <p className='singleMedia__reviews__reviewText'>{e.content}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </>}
                 </>}
             </main>
         </div>

@@ -173,10 +173,39 @@
             cursor: pointer;
             margin: 17px auto;
         }
-    }
 
-    // .singleMedia__aside {
-    //     width: 30%;
-    //     flex: 0 0 auto;
-    // }
+        .singleMedia__reviews__wrapper{
+            margin-top: 23px;
+            .singleMedia__reviews{
+                display: flex;
+                margin-bottom: 27px;
+
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                .singleMedia__reviews__userIcon{
+                    margin-right: 7px;
+                    width: 38px;
+                    height: 38px;
+                }
+                .singleMedia__reviews__content{
+                    .singleMedia__reviews__userName{
+                        display: block;
+                    }
+                    .singleMedia__reviews__date{
+                        display: block;
+                        color: grey;
+                        font-size: 12px;
+                        font-weight: 600;
+                        padding-top: 5px;
+                        padding-bottom: 13px;
+                    }
+                    .singleMedia__reviews__reviewText{
+                        font-size: 15px;
+                        line-height: 23px;
+                    }
+                }
+            }
+        }
+    }
 }
