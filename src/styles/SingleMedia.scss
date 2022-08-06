@@ -3,7 +3,9 @@
     flex-wrap: wrap;
 
     .sinigleMedia__main {
-        width: 70%;
+        width: 100%;
+        max-width: 767px;
+        margin: auto;
         flex: 0 0 auto;
         padding: 40px 20px;
         background-color: #191919;
@@ -173,24 +175,8 @@
         }
     }
 
-    .singleMedia__aside {
-        width: 30%;
-        flex: 0 0 auto;
-    }
-}
-
-@media (max-width: 992px) {
-    .sinigleMedia {
-        .sinigleMedia__main {
-            width: 100%;
-            max-width: 767px;
-            margin: auto;
-        }
-
-        .singleMedia__aside {
-            width: 100%;
-            max-width: 767px;
-            margin: auto;
-        }
-    }
+    // .singleMedia__aside {
+    //     width: 30%;
+    //     flex: 0 0 auto;
+    // }
 }

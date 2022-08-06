@@ -129,7 +129,7 @@ const SingleMedia = () => {
                     }
                 </>}
             </main>
-            <aside className="singleMedia__aside"></aside>
+            {/* <aside className="singleMedia__aside"></aside> */}
         </div>
     )
 }
