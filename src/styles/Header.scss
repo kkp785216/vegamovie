@@ -71,6 +71,27 @@
         }
     }
 
+    .mob__nav {
+        display: none;
+
+        .mob__nav__header {
+            padding: 0 21px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .mob__header__logo {
+                flex: 0 0 auto;
+                width: 100%;
+                padding: 0 21px;
+                max-width: 270px;
+            }
+            &> svg{
+                width: 33px;
+            }
+        }
+    }
+
     .platforms {
         display: flex;
         justify-content: center;
@@ -184,18 +205,26 @@
 
 @media(max-width: 767px) {
     .header {
+
+        .header__logo,
         .nav {
             display: none;
         }
 
+        .mob__nav {
+            display: block;
+        }
+
         .platforms {
             overflow-x: auto;
+
             & * {
                 width: 38px;
             }
         }
     }
 }
+
 @media(max-width: 432px) {
     .header {
         .platforms {

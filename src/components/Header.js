@@ -14,10 +14,11 @@ import Sonyliv from '../assets/img/platforms/Sonyliv.png'
 import ullu from '../assets/img/platforms/ullu.jpg'
 import Altbalaji from '../assets/img/platforms/Altbalaji.jpg'
 import Voot from '../assets/img/platforms/Voot.jpg'
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Header = () => {
 
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
 
   const dispatch = useDispatch();
   const { genre } = useSelector(state => state.genre)
@@ -28,7 +29,7 @@ const Header = () => {
 
   const [query, setQeury] = useState('');
   const navigate = useNavigate();
-  
+
   const handleSearch = (e) => {
     e.preventDefault();
     navigate(`/search?q=${query}`);
@@ -39,15 +40,22 @@ const Header = () => {
       <Link to='/'><img src={logo} alt="Logo" className="d-block header__logo" /></Link>
       <nav className='nav'>
         <ul>
-          <li className={pathname === '/'?'active':''}><Link to='/'>Home</Link></li>
-          <li className={pathname === '/trending'?'active':''}><Link to='/trending'>Trending</Link></li>
-          <li className={pathname === '/popular'?'active':''}><Link to='/popular'>Popular</Link></li>
-          <li className={pathname === '/upcomming'?'active':''}><Link to='/upcomming'>Upcomming</Link></li>
+          <li className={pathname === '/' ? 'active' : ''}><Link to='/'>Home</Link></li>
+          <li className={pathname === '/trending' ? 'active' : ''}><Link to='/trending'>Trending</Link></li>
+          <li className={pathname === '/popular' ? 'active' : ''}><Link to='/popular'>Popular</Link></li>
+          <li className={pathname === '/upcomming' ? 'active' : ''}><Link to='/upcomming'>Upcomming</Link></li>
         </ul>
         <form onSubmit={handleSearch} className='search__form'>
-          <input type="text" value={query} onChange={(e)=>{setQeury(e.target.value)}} className="nav__search" id="search" placeholder='Search...' />
+          <input type="text" value={query} onChange={(e) => { setQeury(e.target.value) }} className="nav__search" id="search" placeholder='Search...' />
           <button className='nav__searchBtn' type="submit" disabled={query.length <= 0}><SearchIcon /></button>
         </form>
+      </nav>
+      <nav className="mob__nav">
+        <div className="mob__nav__header">
+          <MenuIcon />
+          <Link to='/'><img src={logo} alt="Logo" className="mob__header__logo" /></Link>
+          <SearchIcon />
+        </div>
       </nav>
       <div className="platforms hideScrollBar">
         <img src={Netflix} alt="Netflix" />

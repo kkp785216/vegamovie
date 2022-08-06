@@ -27,6 +27,7 @@ const SingleMedia = () => {
                 request(`movie/${searchParams.get('id')}/credits`)
                     .then(data => { setCredits(data.data) });
             });
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchParams.get('id')]);
 
     const formatDate = (input) => {
@@ -98,7 +99,7 @@ const SingleMedia = () => {
                             ))}
                         </Swiper>
                     </div>
-                    <a href={`https://www.imdb.com/title/${details.imdb_id}`} target="_blank" className="sinigleMedia__imdb">
+                    <a href={`https://www.imdb.com/title/${details.imdb_id}`} target="_blank" rel="noreferrer" className="sinigleMedia__imdb">
                         <PlayCircleOutlineIcon />
                         <span>Watch on IMDB<OpenInNewIcon fontSize='11' /></span>
                     </a>
