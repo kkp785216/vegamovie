@@ -12,6 +12,7 @@
         .sinigleMedia__main__poster {
             border-radius: 10px;
             margin-bottom: 21px;
+            width: 100%;
         }
 
         .sinigleMedia__main__heading {
@@ -48,6 +49,42 @@
 
                 &:hover {
                     background-color: #323232;
+                }
+            }
+        }
+
+        .sinigleMedia__credits__list {
+            .sinigleMedia__credits__list__wrapper{
+                padding: 3px;
+                border-radius: 10px;
+                background-color: #424242;
+                .sinigleMedia__credits__img{
+                    position: relative;
+                    width: 100%;
+                    img{
+                        width: 100%;
+                        border-radius: 10px;
+                        &::before{
+                            content: "";
+                            background-color: #686868;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+                .sinigleMedia__credits__title{
+                    padding: 2px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    font-weight: 600;
+                    text-align: center;
+                    margin-top: 3px;
                 }
             }
         }
@@ -112,13 +149,14 @@
     }
 }
 
-@media (max-width: 992px){
+@media (max-width: 992px) {
     .sinigleMedia {
         .sinigleMedia__main {
             width: 100%;
             max-width: 767px;
             margin: auto;
         }
+
         .singleMedia__aside {
             width: 100%;
             max-width: 767px;

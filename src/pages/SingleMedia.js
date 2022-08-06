@@ -3,12 +3,17 @@ import '../styles/SingleMedia.scss'
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import request from '../lib/api'
 import { useSearchParams, Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay} from 'swiper';
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 const SingleMedia = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [details, setDetails] = useState(null)
     const [screenshotsCount, setScreenshotsCount] = useState(5);
     const [images, setImages] = useState(null)
+    const [credits, setCredits] = useState(null)
 
     useEffect(() => {
         request(`/movie/${searchParams.get('id')}`)
@@ -16,9 +21,11 @@ const SingleMedia = () => {
                 setDetails(data.data);
                 setScreenshotsCount(5);
                 request(`/movie/${searchParams.get('id')}/images`)
-                    .then(data => { setImages(data.data) })
+                    .then(data => { setImages(data.data) });
+                request(`movie/${searchParams.get('id')}/credits`)
+                    .then(data => { setCredits(data.data) });
             });
-    }, [searchParams.get('id')])
+    }, [searchParams.get('id')]);
 
     const formatDate = (input) => {
         let date = new Date(input);
@@ -42,6 +49,47 @@ const SingleMedia = () => {
                             <Link to={`/category/${e.name.toLowerCase().replace(' ', '-')}`} key={i} genreid="28">{e.name}</Link>
                         ))}
                     </div>
+                    <div className="sinigleMedia__credits__list">
+                        <Swiper
+                            modules={[Autoplay]}
+                            spaceBetween={12}
+                            slidesPerView={9}
+                            preloadImages={false}
+                            // autoplay={{ delay: 1500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                            breakpoints={{
+                                350: {
+                                    slidesPerView: 3
+                                },
+                                450: {
+                                    slidesPerView: 4
+                                },
+                                500: {
+                                    slidesPerView: 5
+                                },
+                                550: {
+                                    slidesPerView: 6
+                                },
+                                600: {
+                                    slidesPerView: 7
+                                },
+                                650: {
+                                    slidesPerView: 8
+                                },
+
+                            }}
+                        >
+                            {credits?.cast?.map((e, i) => (
+                                <SwiperSlide key={i}>
+                                    <div className="sinigleMedia__credits__list__wrapper" title={e.original_name}>
+                                        <div className="sinigleMedia__credits__img">
+                                            <img src={`https://image.tmdb.org/t/p/w300${e.profile_path}`} alt="" />
+                                        </div>
+                                        <span className='sinigleMedia__credits__title'>{e.original_name}</span>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
                     <div className="singleMedis__hr"></div>
                     <p className="sinigleMedia__description" style={{ marginBottom: '27px' }}>
                         {details.overview}
@@ -60,7 +108,7 @@ const SingleMedia = () => {
                     {images?.backdrops?.concat().splice(0, screenshotsCount).map((e, i) => (
                         <img className='singleMedia__screenshots' key={i} src={`https://image.tmdb.org/t/p/w1280${e.file_path}`} alt="" />
                     ))}
-                    {details && images && screenshotsCount < images.backdrops?.length &&
+                    {images && screenshotsCount < images.backdrops?.length &&
                         <button className="singleMedia__screenshots__seeMoreBtn" onClick={() => { setScreenshotsCount(screenshotsCount + 5) }}>See more</button>
                     }
                 </>}
