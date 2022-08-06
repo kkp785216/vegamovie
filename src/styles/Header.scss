@@ -74,20 +74,121 @@
     .mob__nav {
         display: none;
 
+        .mob__nav__toggleBtn {
+            cursor: pointer;
+        }
+
         .mob__nav__header {
             padding: 0 21px;
             height: 60px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             .mob__header__logo {
                 flex: 0 0 auto;
                 width: 100%;
                 padding: 0 21px;
                 max-width: 270px;
+                display: block;
             }
-            &> svg{
+
+            &>span svg {
                 width: 33px;
+            }
+        }
+
+        .mob__nav__bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000e8;
+            z-index: 100;
+            transform: scale(1.2);
+            visibility: hidden;
+            opacity: 0;
+            transition: ease .3s;
+            overflow-y: auto;
+
+            &.active {
+                transform: scale(1);
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .mob__nav__bar__closeBtn {
+                display: block;
+                margin: auto;
+                margin-top: 33px;
+                padding: 2px;
+                border: 1px solid white;
+                border-radius: 100%;
+                width: 27px;
+                height: 27px;
+            }
+
+            &>ul {
+                margin-top: 100px;
+                padding: 33px;
+
+                li {
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin-bottom: 19px;
+                }
+            }
+        }
+
+        .mob__nav__searchBar {
+            background-color: #505453;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            left: 0;
+            z-index: 90;
+            height: 0px;
+            overflow: hidden;
+            transition: ease .3s;
+            &.active{
+                height: 50px;
+            }
+            .mob__nav__search__form {
+                display: flex;
+                color: #fff;
+
+                .mob__nav__search {
+                    outline: none;
+                    border: none;
+                    flex: 1 0 auto;
+                    border-radius: 0;
+                    background-color: #484c4b;
+                    padding: 17px 14px;
+                    height: 50px;
+                    color: inherit;
+                    box-shadow: inset 0px 0px 4px 0px #ffffff69;
+
+                    &:focus {
+                        box-shadow: inset 0px 0px 4px 0px #ffffff;
+                    }
+                }
+
+                .mob__nav__searchBtn {
+                    padding: 0 19px;
+                    background-color: #484c4b;
+                    height: 50px;
+                    outline: none;
+                    border: none;
+                    transform: scale(.9);
+                    position: relative;
+                    box-shadow: 0px 0px 7px -2px white;
+                    color: inherit;
+                    cursor: pointer;
+                }
             }
         }
     }

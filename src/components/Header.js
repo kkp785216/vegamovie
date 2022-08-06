@@ -15,6 +15,7 @@ import ullu from '../assets/img/platforms/ullu.jpg'
 import Altbalaji from '../assets/img/platforms/Altbalaji.jpg'
 import Voot from '../assets/img/platforms/Voot.jpg'
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Header = () => {
 
@@ -35,6 +36,11 @@ const Header = () => {
     navigate(`/search?q=${query}`);
   }
 
+  const handleToggleSearch = () => {
+    document.querySelector('.mob__nav__searchBar').classList.add('active');
+    document.querySelector('.mob__nav__searchBar').className.includes('active') ? document.querySelector('#mobSearch').focus() : document.querySelector('#mobSearch').blur()
+  }
+
   return (
     <header className='header'>
       <Link to='/'><img src={logo} alt="Logo" className="d-block header__logo" /></Link>
@@ -52,9 +58,25 @@ const Header = () => {
       </nav>
       <nav className="mob__nav">
         <div className="mob__nav__header">
-          <MenuIcon />
+          <span onClick={() => { document.querySelector('.mob__nav__bar').classList.toggle('active') }} className='mob__nav__toggleBtn'><MenuIcon /></span>
+          {/* <MenuIcon /> */}
           <Link to='/'><img src={logo} alt="Logo" className="mob__header__logo" /></Link>
-          <SearchIcon />
+          <span onClick={handleToggleSearch} className='mob__nav__toggleBtn'><SearchIcon /></span>
+        </div>
+        <div className="mob__nav__bar ">
+          <span onClick={() => { document.querySelector('.mob__nav__bar').classList.toggle('active') }} className='mob__nav__toggleBtn'><CloseIcon className='mob__nav__bar__closeBtn' /></span>
+          <ul>
+            <li className={pathname === '/' ? 'active' : ''}><Link to='/' onClick={() => { document.querySelector('.mob__nav__bar').classList.remove('active') }}>Home</Link></li>
+            <li className={pathname === '/trending' ? 'active' : ''}><Link to='/trending' onClick={() => { document.querySelector('.mob__nav__bar').classList.remove('active') }}>Trending</Link></li>
+            <li className={pathname === '/popular' ? 'active' : ''}><Link to='/popular' onClick={() => { document.querySelector('.mob__nav__bar').classList.remove('active') }}>Popular</Link></li>
+            <li className={pathname === '/upcomming' ? 'active' : ''}><Link to='/upcomming' onClick={() => { document.querySelector('.mob__nav__bar').classList.remove('active') }}>Upcomming</Link></li>
+          </ul>
+        </div>
+        <div className="mob__nav__searchBar">
+          <form onSubmit={handleSearch} className='mob__nav__search__form'>
+            <input type="text" value={query} onBlur={()=>{document.querySelector('.mob__nav__searchBar').classList.remove('active')}} onChange={(e) => { setQeury(e.target.value) }} id="mobSearch" className="mob__nav__search" placeholder='Search...' />
+            <button className='mob__nav__searchBtn' type="submit" disabled={query.length <= 0}><SearchIcon /></button>
+          </form>
         </div>
       </nav>
       <div className="platforms hideScrollBar">
