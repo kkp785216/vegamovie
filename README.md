@@ -1,4 +1,4 @@
-# YouTube Clone
+# Vega Movie - React
 
 <h3><a href="https://kkp785216.github.io/vegamovie">View Demo</a></h3>
 
