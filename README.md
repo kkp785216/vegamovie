@@ -2,16 +2,16 @@
 
 <h3><a href="https://kkp785216.github.io/vegamovie">View Demo</a></h3>
 
-### This 'Vegamove' made with React, Redux, and TMDb API.
+### This 'Vegamovie' made with React, Redux, and TMDB API.
 
 <img src="https://i.imgur.com/E2f0kXb.png" />
 
 ### Things used in this Project
 <p>1). React</p>
 <p>2). Redux</p>
-<p>3). Scss</p>
+<p>3). Sass</p>
 <p>4). Swiper Js</p>
-<p>5). TMDb Api</p>
+<p>5). TMDB Api</p>
 
 <p align="left"> 
     <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> 
